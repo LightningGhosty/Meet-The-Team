@@ -1,0 +1,268 @@
+body
+{
+    margin: 0;
+    overflow-x: hidden;
+}
+
+
+#navbar
+{
+position: fixed;
+background: white;
+overflow-x: hidden;
+top: -50px;
+z-index: 5;
+transition: 0.5s;
+}
+
+#navbar a
+{
+
+    float: left;
+    /* padding: 1rem 5rem; */
+    width: 24.8vw;
+    height: 3vh;
+    text-decoration: none;
+    font-family: monospace;
+    color: black;
+    background: grey;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+#navbar a:hover
+{
+    background: rgb(99, 99, 99);
+    color: white;
+}
+
+#navbar a.active
+{
+    background-color: green;
+}
+
+
+.header-block
+{
+    overflow: hidden; /*For some reason even with width of 100vw, the image overflows slightly. Absolute positioning fixes this but we can't have that because other elements will ignore it and will get hidden behind the banner that way.*/
+    width: 100vw;
+    height: 70vh;
+    background: grey;
+    overflow-x: hidden;
+}
+
+.header-block img
+{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    opacity: 0.6;
+    z-index: 0;
+    transform: scaleX(-1);
+}
+
+.Header-1
+{
+    position: absolute;
+    /* float: left; */
+    margin-top: 10%;
+    margin-left: 3.5%;
+    font-size: 120px;
+    font-family: helvetica;
+    color: white;
+    z-index: 2;
+    -webkit-font-smoothing: antialiased; /*I don't think this is doing anything*/
+}
+
+
+.Company-Logo
+
+{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    height: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.Header-2
+{
+    text-align: center;
+    color: #000000;
+    font-family: Helvetica, monospace;
+    font-size: 100px;
+    margin-top: 200px;
+}
+
+.Subheader-1
+{
+    text-align: center;
+    color: #222222;
+    font-family: Helvetica, monospace;
+    font-size: 20px;
+    margin-top: 100px;
+    /* max-width: 50%; */
+}
+
+
+
+
+/* Grid Section */
+
+
+.grid-container
+{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-around;
+    /* background: #555555; This would only be enabled to get a good look at exactly where and how big the container is*/
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+.flipcard-container
+{
+    width: 300px;
+    height: 450px;
+    perspective: 1000px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
+
+.card
+{
+    height: 100%; /*This is 100% of the container's height*/
+    width: 100%;
+    position: relative; /*this makes the front and back divs stack on top of one another, but removing it doesn't break the thing so idk*/
+    transition: transform .75s;
+    transform-style: preserve-3d; /*This allows the perspective to be changed, which affects how the card looks when it is turning. This is controlled in .container*/
+}
+
+.flipcard-container:hover > .card
+{
+    transform: rotateY(180deg)
+   
+    /* transform: rotateY(180deg) rotateZ(180deg); Diagonal transition*/
+    /*transform: rotateY(180deg) scale(0.5); Flip horizontally and get smaller*/
+    /*transform: rotateY(180deg) translateX(-100px); Flip horizontally and move to the left;*/
+}
+
+.front, .back
+{
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    position: absolute;
+    backface-visibility: hidden; /*This hides the backside of the card until it flips over*/
+    box-shadow: 5px 5px 5px grey;
+    background: #EEEEEE;
+}
+
+
+/* .front
+{
+    
+} */
+
+.front img
+{
+    width: 100%;
+    height: 80%;
+    margin-top: 0;
+    border-radius: 20px;
+}
+
+.back
+{
+    
+    transform: rotateY(180deg); /*This is to make the content appear backwards, so that when it rotates, the content is reversed and looks correct. I think.*/
+}
+
+
+.flipcard-h1
+{
+    font-size: 25px;;
+    font-family: helvetica;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+}
+
+
+.flipcard-h2
+{
+    font-size: 15px;
+    font-family: helvetica;
+    font-weight: bold;
+    text-align: center;
+    color: #777777;
+}
+
+
+.flipcard-p
+{
+    max-width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    font-size: 15px;
+    font-family: helvetica;
+    font-weight: bold;
+    text-align: center;
+    color: #222222;
+}
+
+
+
+
+.footer
+{
+    position: relative;
+    margin-bottom: 0;
+    width: 100%;
+    height: 500px;
+    background: #252525;
+}
+
+
+.footer-header
+{
+font-size: 50px;
+font-weight: bolder;
+color: white;
+font-family: Helvetica, monospace;
+padding-top: 50px;
+margin-left: 25px;
+}
+
+
+.footer-header2
+{
+font-size: 25px;
+font-weight: bold;
+color: white;
+font-family: Helvetica, monospace;
+padding-left: 40px;
+max-width: 45%;
+}
+
+
+.footer-fine-print
+{
+    position: absolute;
+    bottom: 8px;
+    font-size: 10px;
+    color: white;
+    font-family: monospace;
+    left: 40%;
+}
+
+
+.social-icon
+{
+    height: 20px;
+    width: 20px;
+}
